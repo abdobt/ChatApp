@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Participer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParticiperResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParticiperResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Connected" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getparticipants">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getparticipantsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getparticipantsResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getmessages">
+        <s:complexType />
+      </s:element>
+      <s:element name="getmessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getmessagesResult" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Message">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Time" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_user" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getuserbyid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getuserbyidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getuserbyidResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="quitter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="quitterResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="messagesbetweentwodates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="d" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="messagesbetweentwodatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messagesbetweentwodatesResult" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addmessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="d" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addmessageResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParticiperSoapIn">
+    <wsdl:part name="parameters" element="tns:Participer" />
+  </wsdl:message>
+  <wsdl:message name="ParticiperSoapOut">
+    <wsdl:part name="parameters" element="tns:ParticiperResponse" />
+  </wsdl:message>
+  <wsdl:message name="getparticipantsSoapIn">
+    <wsdl:part name="parameters" element="tns:getparticipants" />
+  </wsdl:message>
+  <wsdl:message name="getparticipantsSoapOut">
+    <wsdl:part name="parameters" element="tns:getparticipantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getmessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:getmessages" />
+  </wsdl:message>
+  <wsdl:message name="getmessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:getmessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getuserbyidSoapIn">
+    <wsdl:part name="parameters" element="tns:getuserbyid" />
+  </wsdl:message>
+  <wsdl:message name="getuserbyidSoapOut">
+    <wsdl:part name="parameters" element="tns:getuserbyidResponse" />
+  </wsdl:message>
+  <wsdl:message name="quitterSoapIn">
+    <wsdl:part name="parameters" element="tns:quitter" />
+  </wsdl:message>
+  <wsdl:message name="quitterSoapOut">
+    <wsdl:part name="parameters" element="tns:quitterResponse" />
+  </wsdl:message>
+  <wsdl:message name="messagesbetweentwodatesSoapIn">
+    <wsdl:part name="parameters" element="tns:messagesbetweentwodates" />
+  </wsdl:message>
+  <wsdl:message name="messagesbetweentwodatesSoapOut">
+    <wsdl:part name="parameters" element="tns:messagesbetweentwodatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="addmessageSoapIn">
+    <wsdl:part name="parameters" element="tns:addmessage" />
+  </wsdl:message>
+  <wsdl:message name="addmessageSoapOut">
+    <wsdl:part name="parameters" element="tns:addmessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Participer">
+      <wsdl:input message="tns:ParticiperSoapIn" />
+      <wsdl:output message="tns:ParticiperSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getparticipants">
+      <wsdl:input message="tns:getparticipantsSoapIn" />
+      <wsdl:output message="tns:getparticipantsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getmessages">
+      <wsdl:input message="tns:getmessagesSoapIn" />
+      <wsdl:output message="tns:getmessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getuserbyid">
+      <wsdl:input message="tns:getuserbyidSoapIn" />
+      <wsdl:output message="tns:getuserbyidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="quitter">
+      <wsdl:input message="tns:quitterSoapIn" />
+      <wsdl:output message="tns:quitterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="messagesbetweentwodates">
+      <wsdl:input message="tns:messagesbetweentwodatesSoapIn" />
+      <wsdl:output message="tns:messagesbetweentwodatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addmessage">
+      <wsdl:input message="tns:addmessageSoapIn" />
+      <wsdl:output message="tns:addmessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Participer">
+      <soap:operation soapAction="http://tempuri.org/Participer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getparticipants">
+      <soap:operation soapAction="http://tempuri.org/getparticipants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getmessages">
+      <soap:operation soapAction="http://tempuri.org/getmessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getuserbyid">
+      <soap:operation soapAction="http://tempuri.org/getuserbyid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="quitter">
+      <soap:operation soapAction="http://tempuri.org/quitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="messagesbetweentwodates">
+      <soap:operation soapAction="http://tempuri.org/messagesbetweentwodates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addmessage">
+      <soap:operation soapAction="http://tempuri.org/addmessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Participer">
+      <soap12:operation soapAction="http://tempuri.org/Participer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getparticipants">
+      <soap12:operation soapAction="http://tempuri.org/getparticipants" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getmessages">
+      <soap12:operation soapAction="http://tempuri.org/getmessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getuserbyid">
+      <soap12:operation soapAction="http://tempuri.org/getuserbyid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="quitter">
+      <soap12:operation soapAction="http://tempuri.org/quitter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="messagesbetweentwodates">
+      <soap12:operation soapAction="http://tempuri.org/messagesbetweentwodates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addmessage">
+      <soap12:operation soapAction="http://tempuri.org/addmessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44337/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44337/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

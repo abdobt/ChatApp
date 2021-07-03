@@ -50,7 +50,7 @@ namespace WindowsFormsApp2
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.user;
             this.pictureBox1.Location = new System.Drawing.Point(3, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(75, 63);
@@ -60,7 +60,7 @@ namespace WindowsFormsApp2
             // pictureBox2
             // 
             this.pictureBox2.Image = global::WindowsFormsApp2.Properties.Resources._checked;
-            this.pictureBox2.Location = new System.Drawing.Point(254, 26);
+            this.pictureBox2.Location = new System.Drawing.Point(240, 26);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 31);
             this.pictureBox2.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace WindowsFormsApp2
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "UserControl2";
-            this.Size = new System.Drawing.Size(308, 87);
+            this.Size = new System.Drawing.Size(289, 87);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

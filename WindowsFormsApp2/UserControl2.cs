@@ -20,18 +20,16 @@ namespace WindowsFormsApp2
             this.Connected = active;
             InitializeComponent();
             this.label1.Text = name;
-            if(!active)
-                this.pictureBox2.Image = global::WindowsFormsApp2.Properties.Resources.remove;
         }
 
         public bool Connected { get => connected; set => connected = value; }
         public string Uname { get => uname; set => uname = value; }
-        public void change_status(Boolean t)
+        /*public void change_status(Boolean t)
         {
             if (t)
                 this.pictureBox2.Image = global::WindowsFormsApp2.Properties.Resources._checked;
             else
                 this.pictureBox2.Image = global::WindowsFormsApp2.Properties.Resources.remove;
-        }
+        }*/
     }
 }

@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp", "WindowsFormsApp2\ChatApp.csproj", "{6BF8682A-D771-4E3B-9775-E14635ABB8A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B3C1FD3-D85E-4AB1-B689-BE7B392A76DF} = {0B3C1FD3-D85E-4AB1-B689-BE7B392A76DF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wservice", "Wservice\Wservice.csproj", "{0B3C1FD3-D85E-4AB1-B689-BE7B392A76DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{6BF8682A-D771-4E3B-9775-E14635ABB8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BF8682A-D771-4E3B-9775-E14635ABB8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BF8682A-D771-4E3B-9775-E14635ABB8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3C1FD3-D85E-4AB1-B689-BE7B392A76DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3C1FD3-D85E-4AB1-B689-BE7B392A76DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3C1FD3-D85E-4AB1-B689-BE7B392A76DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3C1FD3-D85E-4AB1-B689-BE7B392A76DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

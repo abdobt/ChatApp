@@ -74,10 +74,6 @@ namespace WindowsFormsApp2
         }
         private void OnTimerEvent(object sender, EventArgs e)
         {
-            var cs = "Host=localhost;Username=postgres;Password=;Database=chatapp";
-
-             var con = new NpgsqlConnection(cs);
-             con.Open();
             List<UserControl2> uls = new List<UserControl2>();
             srv.User[] list = chatsrv.getparticipants(this.id_c);
             foreach (srv.User u in list)
@@ -151,7 +147,6 @@ namespace WindowsFormsApp2
                 m.Username = chatsrv.getuserbyid(m.Id_user).Username;
                 addmessage(m.Msg, m.Time, m.Username);
             }
-            con.Close();
             }
         private void button1_Click(object sender, EventArgs e)
         {
